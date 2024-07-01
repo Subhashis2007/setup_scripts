@@ -6,7 +6,7 @@
 
 function setzram() {
 
-    printf "%s\n%s\n%s\n" "[zram0]" "zram-size = ram / 2" "compression-algorithm = zstd" | sudo tee /etc/systemd/zram-generator.conf
+    printf "%s\n%s\n%s\n" "[zram0]" "zram-size = 20480" "compression-algorithm = zstd" | sudo tee /etc/systemd/zram-generator.conf
     sudo systemctl daemon-reload
     sudo systemctl start /dev/zram0
     cat /proc/swaps
@@ -20,7 +20,7 @@ if dpkg -s $SZG >/dev/null 2>&1; then
     setzram
 
 else
-    echo -e "$SZG is not installed. \Installing $SZG" 
+    echo -e "$SZG is not installed. n\Installing $SZG" 
     sudo apt install -y systemd-zram-generator
     setzram
 
