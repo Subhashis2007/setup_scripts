@@ -48,7 +48,8 @@ python-is-python3
 systemd-zram-generator
 git-lfs
 zsh
-vim"
+vim
+tmux"
 
 # Install dependencies
 for packages in $pkgs; do
